@@ -7,7 +7,9 @@
       <hr>
       <div 
         style="width: 100px; height: 100px;"
-        [@divState]="state">
+        [@divState]="state"
+        (@divState.start)="animationStarted($event)"
+        (@divState.done)="animationEnded($event)">
       </div>
       <br>
       <div 
@@ -25,8 +27,9 @@
       <ul class="list-group">
         <li
           class="list-group-item"
+          *ngFor="let item of list"
           (click)="onDelete(item)"
-          *ngFor="let item of list">
+          [@list1]>
           {{ item }}
         </li>
       </ul>
@@ -38,8 +41,9 @@
       <ul class="list-group">
         <li
           class="list-group-item"
+          *ngFor="let item of list"
           (click)="onDelete(item)"
-          *ngFor="let item of list">
+          [@list2]>
           {{ item }}
         </li>
       </ul>
